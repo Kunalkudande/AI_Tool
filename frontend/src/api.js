@@ -1,6 +1,6 @@
 export const fetchResponse = async (chat) =>{
     try{
-        const response = await fetch('http://localhost:3000', { 
+        const response = await fetch('https://ai-tool-backend.vercel.app/', { 
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
