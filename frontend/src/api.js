@@ -6,7 +6,7 @@ export const fetchResponse = async (chat) => {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                title: chat.map((m) => m.message).join(" \n ")
+                message: chat.map((m) => m.message).join(" \n ")
             })
         });
 
