@@ -1,20 +1,20 @@
-export const fetchResponse = async (chat) =>{
-    try{
-        const response = await fetch('https://gemini-backend-bot.vercel.app/generate-blog', { 
+export const fetchResponse = async (chat) => {
+    try {
+        const response = await fetch('https://gemini-backend-bot.vercel.app/generate-blog', {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json"
             },
             body: JSON.stringify({
-                message: chat.map((message)=> message.message).join(" \n ")
+                title: chat.map((m) => m.message).join(" \n ")
             })
-        })
+        });
+
+        if (!response.ok) throw new Error(`Error: ${response.status}`);
 
         const data = await response.json();
         return data;
+    } catch (e) {
+        console.log("Error in API:", e);
     }
-    catch(e){
-        console.log(e);
-        console.log("I am in api.js");
-    }
-}
+};
